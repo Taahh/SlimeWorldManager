@@ -58,6 +58,7 @@ public class GotoCmd implements Subcommand {
             // Safe Spawn Location
             while (spawnLocation.getBlock().getType() != Material.AIR || spawnLocation.getBlock().getRelative(BlockFace.UP).getType() != Material.AIR) {
                 spawnLocation.add(0, 1, 0);
+                spawnLocation.getBlock().setType(Material.BEDROCK);
             }
 
             target.teleport(spawnLocation);
