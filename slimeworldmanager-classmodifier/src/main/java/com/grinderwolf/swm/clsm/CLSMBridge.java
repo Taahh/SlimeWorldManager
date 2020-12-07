@@ -18,4 +18,8 @@ public interface CLSMBridge {
     default boolean skipWorldAdd(Object world) {
         return false; // If true, the world won't be added to the bukkit world list
     }
+    default Object getDefaultGamemode() {
+        return null;
+    }
+
 }

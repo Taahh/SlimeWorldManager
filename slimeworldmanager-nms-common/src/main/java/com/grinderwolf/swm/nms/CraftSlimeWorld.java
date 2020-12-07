@@ -4,6 +4,7 @@ import com.flowpowered.nbt.*;
 import com.flowpowered.nbt.stream.NBTInputStream;
 import com.flowpowered.nbt.stream.NBTOutputStream;
 import com.github.luben.zstd.Zstd;
+import com.github.luben.zstd.ZstdDictCompress;
 import com.grinderwolf.swm.api.exceptions.WorldAlreadyExistsException;
 import com.grinderwolf.swm.api.loaders.SlimeLoader;
 import com.grinderwolf.swm.api.utils.SlimeFormat;
@@ -88,7 +89,13 @@ public class CraftSlimeWorld implements SlimeWorld {
         CraftSlimeWorld world;
 
         synchronized (chunks) {
-            world = new CraftSlimeWorld(loader == null ? this.loader : loader, worldName, new HashMap<>(chunks), extraData.clone(),
+            Map<Long, SlimeChunk> chunks = new HashMap<>(this.chunks.size());
+
+            for (Map.Entry<Long, SlimeChunk> entry : this.chunks.entrySet()) {
+                chunks.put(entry.getKey(), new CraftSlimeChunk(worldName, entry.getValue()));
+            }
+
+            world = new CraftSlimeWorld(loader == null ? this.loader : loader, worldName, chunks, extraData.clone(),
                     new ArrayList<>(worldMaps), version, propertyMap, loader == null, lock);
         }
 
