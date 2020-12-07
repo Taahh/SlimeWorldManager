@@ -1,5 +1,7 @@
 # Slime World Manager [![Build Status](https://travis-ci.com/Grinderwolf/Slime-World-Manager.svg?branch=master)](https://travis-ci.com/Grinderwolf/Slime-World-Manager)
 
+#### UNOFFICIAL FORK OF https://github.com/Grinderwolf/Slime-World-Manager
+
 [<img src="https://discordapp.com/assets/e4923594e694a21542a489471ecffa50.svg" alt="" height="55" />](https://discord.gg/P9Pd58d)
 
 Slime World Manager is a Minecraft plugin that implements the Slime Region Format, developed by the Hypixel Dev Team.
